@@ -26,8 +26,7 @@ setup(
     packages=find_packages(exclude=['tests', ]),
     install_requires=install_requires,
     scripts=['facio/bin/facio'],
-    package_data={'facio': ['default_template/index.html',
-                            'default_template/css/bootstrap.css', ]},
+    package_data={'facio': ['default_template/*', ]},
     include_package_data=True,
     classifiers=[
         'Environment :: Console',

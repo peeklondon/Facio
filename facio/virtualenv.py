@@ -26,7 +26,9 @@ class Virtualenv(object):
         '''Build venv_name.'''
         prefix = getattr(self.config, 'venv_prefix', None)
         if not prefix:
-            return self.config.project_name
+            #return self.config.project_name
+            # put this in to configuration
+            return '.virtualenv'
         else:
             name = ''.join([prefix, self.config.project_name])
             return name

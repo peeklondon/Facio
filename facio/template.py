@@ -58,8 +58,15 @@ class Template(object):
     def set_project_root(self):
         '''Set project root, based on working dir and project name.'''
 
-        self.project_root = os.path.join(self.working_dir,
+        # If virtualenv specified then put the project there
+        # otherwise create the project in current working_dir
+        if self.config.venv_create:
+            self.project_root = os.path.join(self.config.venv_path,
+                                        '.virtualenv',self.config.project_name)
+        else:
+            self.project_root = os.path.join(self.working_dir,
                                          self.config.project_name)
+                                         
 
     def make_project_dir(self):
         '''Make the project director in current working directory.'''
